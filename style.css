@@ -1,0 +1,290 @@
+html, body, .container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #333333;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+input[type=text] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+}
+
+.icon {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.icon:hover {
+    opacity: 0.8;
+}
+
+.input {
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0px 1px 2px #dcdcdc;
+}
+
+.container {
+    .search {
+        width: 100%;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f8f9fa;
+        h2 {
+            margin-top: 48px;
+            margin-bottom: 12px;
+        }
+        .input {
+            width: 80%;
+            min-width: 100px;
+            max-width: 600px;
+            height: 36px;
+    
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            font-size: medium;
+            margin: 8px;
+    
+            .prefix {
+                width: 12px;
+                height: 12px;
+                background-image: url('./images/search-solid.svg');
+                margin: 8px 12px;
+            }
+            input {
+                flex: 1;
+            }
+            .divider {
+                height: 100%;
+                width: 1px;
+                background-color: #eeeeee;
+                margin-left: 12px;
+            }
+            .suffix {
+                width: 12px;
+                height: 12px;
+                background-image: url('./images/times-solid.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin: 8px 12px;
+            }
+        }
+    }
+    
+    .wave {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    #result {
+        width: 100%;
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #error {
+            display: none;
+            color: #666666;
+            background-color: #dcdcdc;
+            border-radius: 12px;
+            white-space: normal;
+            padding: 8px 64px;
+            margin: 32px;
+        }
+
+        #tabs {
+            position: relative;
+            width: 80%;
+            flex: 1;
+            margin: 32px 0;
+
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            
+            background-color: #eeeeee;
+
+            .tab {
+                display: none;
+            }
+
+            .tabLabel {
+                display: block;
+                height: 40px;
+                padding: 0 20px;
+                color: #333333;
+                font-size: 16px;
+                line-height: 40px;
+                white-space: nowrap;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #dddddd;
+                }
+            }
+
+            .tab:checked + .tabLabel {
+                background-color: #cccccc;
+            }
+            
+            .tab:checked + .tabLabel + .tabContent {
+                display: flex;
+            }
+
+            .tabContent {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                position: absolute;
+                left: 0;
+                top: 60px;
+                display: none;
+                width: 100%;
+
+                table {
+                    width: 600px;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    border-top: solid 1px #eeeeee;
+                    td {
+                        width: 300px;
+                        border-bottom: solid 1px #eeeeee;
+                        padding: 3px 8px;
+                        white-space: nowrap;
+
+                        img {
+                            width: 12px;
+                            height: 12px;
+                            margin-left: 2px;
+                        }
+                    }
+                    td:first-child {
+                        text-align: right;
+                    }
+                    td:last-child {
+                        font-weight: 300;
+                    }
+                }
+            }
+
+            .tabContentCompany {
+                #logo {
+                    margin-bottom: 16px;
+                }
+            }
+
+            .tabContentStock {
+                table {
+                    width: 200px;
+                
+                    td {
+                        width: 100px;
+                    }
+                }
+                .recommendation {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin: 16px;
+                    span {
+                        display: block;
+                        padding: 8px;
+                        text-align: center;
+                        color: white;
+                    }
+                    span:first-child {
+                        color: red;
+                    }
+                    span:last-child {
+                        color: lightgreen;
+                    }
+                    #strongSell {
+                        background-color: red;
+                    }
+                    #sell {
+                        background-color: #b25f4d;
+                    }
+                    #hold {
+                        background-color: #799460;
+                    }
+                    #buy {
+                        background-color: #44c974;
+                    }
+                    #strongBuy {
+                        background-color: lightgreen;
+                    }
+                }
+                >span {
+                    font-weight: 300;
+                }
+            }
+
+            .tabContentCharts {
+                #charts {
+                    width: 100%;
+                }
+            }
+
+            .tabContentNews {
+                #news {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    margin-bottom: 32px;
+
+                    .wrapper {
+                        display: flex;
+                        flex-direction: row;
+
+                        padding: 12px;
+                        
+                        background-color: #eeeeee;
+
+                        img {
+                            width: 96px;
+                            height: 96px;
+                        }
+
+                        .right {
+                            display: flex;
+                            flex-direction: column;
+
+                            margin-left: 16px;
+
+                            .title {
+                                font-weight: bold;
+                            }
+
+                            .subtitle {
+                                font-weight: 300;
+                            }
+
+                            .url {
+                                color: blue;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

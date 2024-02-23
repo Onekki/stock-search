@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Search</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="search">
+            <h2>Stock Search</h2>
+            <span class="input">
+                <span id="searchSubmit" class="icon prefix"></span>
+                <input id="search" type="text" name="symbol" placeholder="Enter Stock Ticker Symbol" required>
+                <div class="divider"></div>
+                <span id="clear" class="icon suffix"></span>
+            </span>
+        </div>
+        <img class="wave" src="./images/back.svg" draggable="false">
+        <div id="result">
+            <div id="error">Error: No record has been found, please enter a valid symbol</div>
+            <div id="tabs">
+                <input type="radio" name="tab" class="tab" id="tabCompany" checked>
+                <label for="tabCompany" class="tabLabel tabLabelCompany">Company</label>
+                <div class="tabContent tabContentCompany">
+                    <img id="logo" src="">
+                    <table id="company">
+                        <tr>
+                            <td>Company Name</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Stock Ticker Symbol</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Stock Exchange Code</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Company Start Date</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <input type="radio" name="tab" class="tab" id="tabStock">
+                <label for="tabStock" class="tabLabel tabLabelStock">Stock Summary</label>
+                <div class="tabContent tabContentStock">
+                    <table id="stock">
+                        <tr>
+                            <td>Stock Ticker Symbol</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Trading Day</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Previous Closing Price</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Opening Price</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>High Price</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Low Price</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Change</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Change Percent</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="recommendation">
+                        <span>Strong<br>Sell</span>
+                        <span id="strongSell">0</span>
+                        <span id="sell">0</span>
+                        <span id="hold">0</span>
+                        <span id="buy">0</span>
+                        <span id="strongBuy">0</span>
+                        <span>Strong<br>Buy</span>
+                    </div>
+                    <span>Recommendation Trends</span>
+                </div>
+                <input type="radio" name="tab" class="tab" id="tabCharts">
+                <label for="tabCharts" class="tabLabel tabLabelCharts">Charts</label>
+                <div class="tabContent tabContentCharts">
+                    <div id="charts"></div>
+                </div>
+                <input type="radio" name="tab" class="tab" id="tabNews">
+                <label for="tabNews" class="tabLabel tabLabelNews">Latest News</label>
+                <div class="tabContent tabContentNews">
+                    <div id="news"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
